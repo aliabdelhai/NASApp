@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+}
+
+#home-background{
+  background-image: url(https://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA12066-1920x1200.jpg);
+  height: 200%;
+  width: 200%;
+  background-position: center;
+  background-repeat: inherit;
+  background-size: cover;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+}
+
