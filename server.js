@@ -7,7 +7,7 @@ const api = require('./server/routes/api')
 // mongoose.connect('mongodb://localhost/nasaDB', { useNewUrlParser: true })
 
 const url = "mongodb+srv://ali_database:halaali107@cluster0.g6hcu.mongodb.net/nasaDB?retryWrites=true&w=majority"
-mongoose.connect(process.env.NASA, {useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false }) 
+mongoose.connect(process.env.URI, {useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false }) 
 .then(() => console.log( 'Database Connected' ))
 .catch(err => console.log( err ));
 
