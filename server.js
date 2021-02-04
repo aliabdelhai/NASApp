@@ -6,16 +6,10 @@ const api = require('./server/routes/api')
 
 // mongoose.connect('mongodb://localhost/nasaDB', { useNewUrlParser: true })
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://ali_database:halaali107@cluster0.g6hcu.mongodb.net/nasaDB?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-
-mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/nasaDB');
+const url = "mongodb+srv://ali_database:halaali107@cluster0.g6hcu.mongodb.net/nasaDB?retryWrites=true&w=majority"
+mongoose.connect(process.env.NASA, {useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false }) 
+.then(() => console.log( 'Database Connected' ))
+.catch(err => console.log( err ));
 
 
 app.use(function (req, res, next) {
@@ -31,6 +25,8 @@ app.use('/', api)
 
 
 const port = 4200;
-app.listen(process.env.PORT || PORT);
+app.listen(port, function(){
+    console.log(`Running server on port ${port}`)
+})
 
 
