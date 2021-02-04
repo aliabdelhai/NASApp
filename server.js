@@ -15,6 +15,9 @@ client.connect(err => {
   client.close();
 });
 
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/nasaDB');
+
+
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
@@ -28,8 +31,6 @@ app.use('/', api)
 
 
 const port = 4200;
-app.listen(port, function(){
-    console.log(`Running server on port ${port}`)
-})
+app.listen(process.env.PORT || PORT);
 
 
