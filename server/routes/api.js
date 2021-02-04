@@ -10,6 +10,7 @@ router.get('/images' , async (req, res) => {
         res.send(images)
     } catch (error) {
         res.send(error)
+        
     }
 })
 
