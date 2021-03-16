@@ -5,7 +5,6 @@ const Image = require('../models/Image');
 
 router.get('/images' , async (req, res) => {
     try {
-        console.log(res.query)
         const images = await Image.find({})
         res.send(images)
     } catch (error) {
