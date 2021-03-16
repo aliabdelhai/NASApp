@@ -10,7 +10,7 @@ function Favourites(props) {
     }
 
     const getTransactions = async () => {
-        return axios.get(`/images?id=${id}`)
+        return axios.get(`http://localhost:4200/images?id=${id}`)
     }
 
     useEffect(async () => {
@@ -20,7 +20,7 @@ function Favourites(props) {
 
 
     const removeFromFavourites = async (id) => {
-        await axios.delete(`/image/${id}`)
+        await axios.delete(`http://localhost:4200/image/${id}`)
         const index = favourites.findIndex(d => d._id === id)
         if (index !== -1) favourites.splice(index, 1);
     }

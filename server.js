@@ -3,13 +3,17 @@ const path = require('path')
 const app = express()
 const mongoose = require('mongoose')
 const api = require('./server/routes/api')
+URI = process.env.REACT_APP_MONGODB_URI || 'mongodb://localhost/nasaDB',
+PORT = process.env.REACT_APP_PORT || 4200,
 
-
-const uri = "mongodb+srv://ali_database:halaali107@cluster0.g6hcu.mongodb.net/Nasa?retryWrites=true&w=majority"
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false }) 
-.then(() => console.log( 'Database Connected' ))
-.catch(err => console.log( err ));
-
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, connectTimeoutMS: 5000, serverSelectionTimeoutMS: 5000 })
+.then(function() {
+    console.log("Successfully connected to DB.");
+})
+.catch(function(err) {
+    console.log(err.message);
+    process.exit(1);
+});
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
@@ -23,9 +27,6 @@ app.use(express.urlencoded({extended: false}))
 app.use('/', api)
 
 
-const port = 4200;
-app.listen(port, function(){
-    console.log(`Running server on port ${port}`)
-})
-
-
+app.listen(PORT, function() {
+    console.log(`Server is up and running on port: ${PORT}.`);
+});
