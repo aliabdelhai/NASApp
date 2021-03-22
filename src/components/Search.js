@@ -14,7 +14,7 @@ function Search() {
     }
 
     const save = async (img) => {
-        const response = await axios.post('/image', img)
+        const response = await axios.post('/api/image', img)
     }
 
 
