@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With')
     next()
 })
-
+app.use(express.static('build'));
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use('/api', api)
