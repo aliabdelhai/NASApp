@@ -1,5 +1,4 @@
 {
-  "proxy": "http://localhost:4200",
   "name": "nasa",
   "version": "0.1.0",
   "private": true,
