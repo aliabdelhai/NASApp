@@ -3,8 +3,8 @@ const path = require('path')
 const app = express()
 const mongoose = require('mongoose')
 const api = require('./server/routes/api')
-URI = process.env.REACT_APP_MONGODB_URI || 'mongodb://localhost/nasaDB',
-PORT = process.env.REACT_APP_PORT || 4200,
+URI = process.env.MONGODB_URI || 'mongodb://localhost/nasaDB',
+PORT = process.env.PORT || 4200,
 
 mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true, connectTimeoutMS: 5000, serverSelectionTimeoutMS: 5000 })
 .then(function() {
