@@ -48,4 +48,4 @@ npm run-script develop
 
 ### Screenshots
 
-## <p align="center"><img src="https://res.cloudinary.com/dnngdbnuq/image/upload/v1616776321/Screen_Shot_2021-03-26_at_7.31.19_PM_f74sh4.png" width="300"> </p>
+## <p align="center"><img src="https://res.cloudinary.com/dnngdbnuq/image/upload/v1616776321/Screen_Shot_2021-03-26_at_7.31.19_PM_f74sh4.png" width="500"> </p>
