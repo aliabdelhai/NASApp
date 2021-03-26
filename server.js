@@ -13,7 +13,6 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true, useFind
     console.log("Successfully connected to DB.");
 })
 .catch(function(err) {
-    console.log(err.message);
     process.exit(1);
 });
 

@@ -6,6 +6,11 @@ import { BrowserRouter as Router, Route, Link, useLocation } from 'react-router-
 
 function MediaCard(props) {
 
+    let id;
+    if (props.match != undefined) {
+        id = props.match.params.id
+    }
+
     const saveToFavourites = () => {
         let img = { title: props.data.data[0].title, imgUrl: props.data.links[0].href, description: props.data.data[0].description }
         props.saveToFavourites(img)
@@ -32,7 +37,7 @@ function MediaCard(props) {
             {props.response != undefined ?
                 <div className="homePage">
                     <div className="title">{props.response.title}</div>
-                    <div className="homeImg"><iframe width="820" height="515" src={props.response.url}></iframe></div>
+                    <div className="homeImg"><img width="820" height="515" src={props.response.url}></img></div>
                     <div className="desc">{props.response.explanation}</div>
                 </div>
                 : null}
@@ -40,6 +45,7 @@ function MediaCard(props) {
             {props.data != undefined ?
                 <div className="search">
                     <div className="subTitle">{props.data.data[0].title}</div>
+                    {console.log(props.data.links[0].href)}
                     <div className="searchImg"><img width="420" height="315" src={props.data.links[0].href}></img></div>
                     <a class="button" href="#popup1"><i class="fas fa-thumbs-up" id="likes" onClick={saveToFavourites}></i></a>
                 </div> : null}
@@ -56,6 +62,10 @@ function MediaCard(props) {
 
 
                 </div> : null}
+
+       
+
+
 
 
         </div>
